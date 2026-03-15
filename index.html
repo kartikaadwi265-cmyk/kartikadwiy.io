@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universitas Muhammadiyah Sumatera Utara</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Tema Hijau Gelap */
+        :root {
+            --primary-green: #0D5D2D;
+            --secondary-green: #2E9E4D;
+            --dark-bg: #000000;
+            --text-white: #FFFFFF;
+            --text-light: #C8E6C9;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--primary-green);
+            padding: 1rem 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .nav-menu a {
+            color: var(--text-white);
+            text-decoration: none;
+            margin-left: 1.5rem;
+        }
+
+        .dark-mode-btn {
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            background-color: var(--primary-green);
+            color: var(--text-white);
+            padding: 8px 18px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--primary-green);
+            padding: 3rem 0;
+        }
+
+        .stats-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .stat-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-item span {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+            display: block;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            color: var(--text-white);
+        }
+
+        /* Program Pendidikan */
+        .programs {
+            padding: 3rem 0;
+        }
+
+        .programs h2 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .programs p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .program-card {
+            background-color: var(--primary-green);
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .program-card h3 {
+            margin-bottom: 0.8rem;
+        }
+
+        .program-card a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Berita */
+        .news {
+            padding: 3rem 0;
+            background-color: var(--dark-bg);
+        }
+
+        .news h2 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .news p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .news-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background-color: var(--primary-green);
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Sambutan */
+        .rector {
+            padding: 3rem 0;
+        }
+
+        .rector-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .rector-img {
+            width: 150px;
+            height: 150px;
+            background-color: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .rector-text h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-green);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .program-cards, .news-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .rector-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Universitas Muhammadiyah Sumatera Utara</div>
+            <div>
+                <a href="#">Beranda</a>
+                <a href="#">Akademik</a>
+                <a href="#">Berita</a>
+                <a href="#">Tentang</a>
+                <button class="dark-mode-btn">Dark Mode</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>SELAMAT DATANG DI</h1>
+            <h2>Universitas Muhammadiyah Sumatera Utara</h2>
+            <p>Kampus terdepan di Sumatera yang mencetak sumber daya manusia berkualitas, berdaya saing, dan berwawasan global sejak 1952.</p>
+            <a href="#" class="btn">Jelajahi Program Studi</a>
+        </div>
+    </section>
+
+    <!-- Statistik -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <span>220+</span>
+                <p>Program Studi</p>
+            </div>
+            <div class="stat-item">
+                <span>45.000+</span>
+                <p>Mahasiswa Aktif</p>
+            </div>
+            <div class="stat-item">
+                <span>2.400+</span>
+                <p>Dosen & Staf</p>
+            </div>
+            <div class="stat-item">
+                <span>72</span>
+                <p>Thn Berdiri Sejak 1952</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Pendidikan -->
+    <section class="programs">
+        <div class="container">
+            <h2>Program Pendidikan</h2>
+            <p>UMSU menawarkan berbagai jenjang pendidikan berkualitas tinggi untuk masa depanmu.</p>
+            <div class="program-cards">
+                <div class="program-card">
+                    <h3>Sarjana (S1)</h3>
+                    <p>15 Fakultas dengan program 100+ studi terakreditasi dan internasional.</p>
+                    <a href="#">Lihat Program</a>
+                </div>
+                <div class="program-card">
+                    <h3>Pascasarjana (S2/S3)</h3>
+                    <p>Program magister dan doktoral dengan riset dan jurnal internasional.</p>
+                    <a href="#">Lihat Program</a>
+                </div>
+                <div class="program-card">
+                    <h3>Profesi & Vokasi</h3>
+                    <p>Program dokter, apoteker, dan berbasis kompetensi industri.</p>
+                    <a href="#">Lihat Program</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita Terkini -->
+    <section class="news">
+        <div class="container">
+            <h2>Berita Terkini</h2>
+            <p>Informasi terbaru dari kampus UMSU</p>
+            <div class="news-cards">
+                <div class="news-card">
+                    <p class="news-date">2 Januari 2025</p>
+                    <h3>UMSU Raih Peringkat 5 Terbaik Indonesia</h3>
+                    <a href="#">Baca Selengkapnya</a>
+                </div>
+                <div class="news-card">
+                    <p class="news-date">3 Januari 2025</p>
+                    <h3>Wisuda 2025: 2.800+ Mahasiswa Lulus</h3>
+                    <a href="#">Baca Selengkapnya</a>
+                </div>
+                <div class="news-card">
+                    <p class="news-date">3 Januari 2025</p>
+                    <h3>UMSU Tandatangani MoU dengan 10 Universitas Negeri</h3>
+                    <a href="#">Baca Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sambutan Rektor -->
+    <section class="rector">
+        <div class="container rector-content">
+            <div class="rector-img">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="rector-text">
+                <h3>SAMBUTAN REKTOR</h3>
+                <h4>Prof. Dr. Muryanto Amin, S.Sos., M.Si.</h4>
+                <p>UMSU terus berkomitmen menghasilkan lulusan unggul akademik dan berkualitas karakter, siap menghadapi tantangan global dengan semangat inovasi dan kolaborasi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Universitas Muhammadiyah Sumatera Utara. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Script untuk Animasi Angka -->
+    <script>
+        // Animasi angka statistik
+        const counters = document.querySelectorAll('.stat-item span');
+        const speed = 200;
+
+        counters.forEach(counter => {
+            const target = parseInt(counter.innerText.replace(/\+/g, '').replace(/\./g, ''));
+            let count = 0;
+            const updateCount = () => {
+                const increment = target / speed;
+                if (count < target) {
+                    count += increment;
+                    if (target >= 1000) {
+                        counter.innerText = Math.ceil(count).toLocaleString('id-ID');
+                    } else {
+                        counter.innerText = Math.ceil(count);
+                    }
+                    setTimeout(updateCount, 10);
+                } else {
+                    counter.innerText = target >= 1000 ? target.toLocaleString('id-ID') + '+' : target + '+';
+                }
+            };
+            updateCount();
+        });
+    </script>
+</body>
+</html>
